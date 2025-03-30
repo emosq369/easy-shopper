@@ -1,0 +1,30 @@
+/* Page Layout */
+.customer-home {
+  padding: 20px;
+  background-color: #f9f9f9; /* Light background for a clean look */
+  min-height: 100vh;
+}
+
+/* Search Bar */
+.search-bar {
+  margin: 20px auto;
+  text-align: center;
+}
+
+.search-bar input {
+  width: 300px;
+  padding: 10px;
+  font-size: 1rem;
+  border: 2px solid #27ae60;
+  border-radius: 8px;
+  outline: none;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Product Grid */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}

@@ -1,0 +1,115 @@
+@import url("https://fonts.googleapis.com/css?family=Sofia&display=swap");
+
+/* Main container */
+.auth-form {
+  display: flex;
+  width: 900px;
+  height: 500px;
+  background-color: white;
+  border-radius: 15px;
+  box-shadow: 50px 30px 40px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  margin: auto;
+  margin-top: 50px;
+}
+
+/* Left side */
+.left-side {
+  flex: 1;
+  background-image: url("./images/background.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.left-side span {
+  font-family: "Sofia", cursive;
+  font-size: 35px;
+  font-weight: bold;
+  text-align: center;
+  line-height: 1.5;
+  position: block;
+  margin-bottom: 10px;
+}
+
+/* Right side */
+.right-side {
+  flex: 1;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.right-side h2 {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+.right-side form {
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.right-side label {
+  font-size: 1rem;
+  color: #555;
+}
+
+.right-side input {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.right-side input:focus {
+  border-color: #ffb800;
+  box-shadow: 0 0 5px rgba(255, 184, 0, 0.5);
+}
+
+.right-side button {
+  background-color: #ff4b5c;
+  color: #fff;
+  padding: 0.75rem;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.right-side button:hover {
+  background-color: #e04350;
+}
+
+.right-side p {
+  font-size: 0.9rem;
+  color: #666;
+  margin-top: 1rem;
+}
+
+.right-side a {
+  color: #ff4b5c;
+  font-weight: bold;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.right-side a:hover {
+  color: #e04350;
+}

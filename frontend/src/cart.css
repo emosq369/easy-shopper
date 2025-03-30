@@ -1,0 +1,134 @@
+/* Cart container */
+.cart-container {
+  width: 90%;
+  margin: 2rem auto;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Back to Home Link */
+.back-to-home {
+  display: inline-block;
+  margin-bottom: 1rem;
+  color: #3498db;
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+.back-to-home:hover {
+  text-decoration: underline;
+}
+
+/* Cart Header */
+.cart-header {
+  text-align: center;
+  font-size: 2rem;
+  color: #27ae60;
+  font-family: "Roboto", sans-serif;
+  margin-bottom: 20px;
+}
+
+/* Cart Items */
+.cart-items {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Individual Cart Item */
+.cart-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px;
+  background-color: #f9f4ef;
+  border: 1px solid #f1f1f1;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.cart-item-image {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.cart-item-details {
+  flex: 1;
+  margin-left: 15px;
+}
+
+.cart-item-details h2 {
+  font-size: 1.1rem;
+  margin: 0;
+  color: #2c3e50;
+}
+
+.cart-item-details p {
+  margin: 5px 0;
+  color: #7f8c8d;
+  font-size: 0.9rem;
+}
+
+/* Quantity Input and Buttons */
+.cart-item input {
+  width: 50px;
+  padding: 5px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  text-align: center;
+  margin-right: 10px;
+}
+
+.cart-item button {
+  background-color: #e74c3c;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 12px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.cart-item button:hover {
+  background-color: #c0392b;
+}
+
+/* Cart Summary */
+.cart-summary {
+  text-align: right;
+  margin-top: 20px;
+}
+
+.cart-summary h2 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+.cart-submit-btn {
+  background-color: #27ae60;
+  color: white;
+  font-weight: bold;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.cart-submit-btn:hover {
+  background-color: #2ecc71;
+}
+
+/* Message */
+.message {
+  text-align: center;
+  color: #27ae60;
+  font-size: 1rem;
+  margin-top: 10px;
+}
