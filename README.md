@@ -1,4 +1,8 @@
-# Grocery Store Web Application
+# Grocery Store App
+
+⚠️ **This project is a work in progress.**  
+The current setup may not run as expected. Frontend and backend folders are structured, but some configuration is still missing (e.g., environment variables, data connections, etc.).
+
 
 ## Description
 This is a full-stack grocery store web application built with **React** (frontend) and **Node.js with Express** (backend). It allows users to browse products, manage a shopping cart, and place orders. 
