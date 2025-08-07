@@ -17,8 +17,8 @@ import Cart from "./Cart.js";
 import "./App.css";
 
 function App() {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [userRole, setUserRole] = useState("");
+  const [isAuthenticated, setIsAuthenticated] = useState(true);
+  const [userRole, setUserRole] = useState("customer");
   const [cart, setCart] = useState([]);
 
   useEffect(() => {
@@ -48,7 +48,7 @@ function App() {
   return (
     <Router>
       <Routes>
-        {/* Log in route */}
+        Log in route
         <Route
           path="/"
           element={
