@@ -1,3 +1,4 @@
+const bcrypt = require("bcrypt");
 const express = require("express");
 const cors = require("cors");
 const { Pool } = require("pg");
@@ -5,7 +6,15 @@ require("dotenv").config();
 
 const app = express();
 const port = process.env.PORT || 4000;
-app.use(cors());
+app.use(
+  cors({
+    origin: [
+      "http://localhost:3000",
+      "https://<your-frontend-domain>", // add when deployed
+    ],
+    credentials: false,
+  })
+);
 app.use(express.json());
 
 // Environment check (Development or Production)
@@ -17,23 +26,17 @@ if (process.env.NODE_ENV === "development") {
   console.log("The environment is not set correctly.");
 }
 
+const isProduction = process.env.NODE_ENV === "production";
+
 const pool = new Pool({
   user: process.env.DB_USER,
   host: process.env.DB_HOST,
   database: process.env.DB_DATABASE,
   password: process.env.DB_PASSWORD,
   port: process.env.DB_PORT,
-});
-
-// Temp DB test route
-app.get("/test-db", async (req, res) => {
-  try {
-    const result = await pool.query("SELECT NOW()");
-    res.json(result.rows[0]);
-  } catch (err) {
-    console.error("DB test failed:", err);
-    res.status(500).send("Database connection failed");
-  }
+  ...(isProduction && {
+    ssl: { rejectUnauthorized: false },
+  }),
 });
 
 // 1. Login validation
@@ -41,26 +44,27 @@ app.post("/login", async (req, res) => {
   const { username, password } = req.body;
   try {
     const result = await pool.query(
-      "SELECT * FROM users WHERE username = $1 AND password = $2 ",
-      [username, password]
+      "SELECT id, username, password, role FROM users WHERE username=$1",
+      [username]
     );
 
-    console.log(result.rows);
-
-    if (result.rows.length > 0) {
-      res.status(200).json({
-        message: "Log in succesful",
-        user: {
-          id: result.rows[0].id,
-          username: result.rows[0].username,
-          role: result.rows[0].role,
-        },
-      });
-    } else {
-      res.status(401).json({ message: "Invalid Username/Password" });
+    if (!result.rowCount) {
+      return res.status(401).json({ message: "Invalid Username/Password" });
     }
-  } catch (err) {
-    console.error(err);
+
+    const user = result.rows[0];
+    const match = await bcrypt.compare(password, user.password);
+
+    if (!match) {
+      return res.status(401).json({ message: "Invalid Username/Password" });
+    }
+
+    res.json({
+      message: "Log in successful",
+      user: { id: user.id, username: user.username, role: user.role },
+    });
+  } catch (e) {
+    console.error(e);
     res.status(500).json({ message: "Error logging in" });
   }
 });
@@ -74,17 +78,18 @@ app.post("/register", async (req, res) => {
       [username, email]
     );
 
-    // console.log(result);
-
     if (result.rows.length > 0) {
       res.status(400).json({ message: "User/Email already exists" });
     }
 
+    const hash = await bcrypt.hash(password, 10);
+
     await pool.query(
-      "INSERT INTO users (username, email, password) VALUES ($1, $2, $3)",
-      [username, email, password]
+      "INSERT INTO users (username, email, password, role) VALUES ($1,$2,$3,'customer')",
+      [username, email, hash]
     );
-    res.status(200).json({ message: "Registration succesfully" });
+
+    res.status(200).json({ message: "Registration successful" });
   } catch (err) {
     res.status(500).json({ message: "Error registering user" });
   }
@@ -117,7 +122,7 @@ app.post("/addproduct", async (req, res) => {
 
     res.status(201).json({ message: "Product added successfully" });
   } catch (error) {
-    res.status(500).json({ message: "Error addin product" });
+    res.status(500).json({ message: "Error adding product" });
   }
 });
 
