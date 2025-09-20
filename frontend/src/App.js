@@ -5,7 +5,6 @@ import {
   Routes,
   Route,
   Navigate,
-  useNavigate,
 } from "react-router-dom";
 import AdminHome from "./AdminHome.js";
 import CustomerHome from "./CustomerHome.js";
@@ -17,21 +16,21 @@ import Cart from "./Cart.js";
 import "./App.css";
 
 function App() {
-  const [isAuthenticated, setIsAuthenticated] = useState(true);
-  const [userRole, setUserRole] = useState("customer");
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [userRole, setUserRole] = useState("null");
   const [cart, setCart] = useState([]);
 
   useEffect(() => {
     const storedRole = sessionStorage.getItem("role");
-    const StoredUserId = sessionStorage.getItem("userId");
+    const storedUserId = sessionStorage.getItem("userId");
     console.log("UserId", sessionStorage.getItem("userId"));
-    if (StoredUserId && storedRole) {
+    if (storedUserId && storedRole) {
       setIsAuthenticated(true);
       setUserRole(storedRole);
     }
   }, []);
 
-  function handleLoginsuccess(role, userId) {
+  function handleLoginSuccess(role, userId) {
     setIsAuthenticated(true);
     setUserRole(role);
     sessionStorage.setItem("userId", userId);
@@ -55,7 +54,7 @@ function App() {
             isAuthenticated ? (
               <Navigate to={userRole === "manager" ? "/admin" : "/home"} />
             ) : (
-              <AuthenticationForm onLoginSuccess={handleLoginsuccess} />
+              <AuthenticationForm onLoginSuccess={handleLoginSuccess} />
             )
           }
         />

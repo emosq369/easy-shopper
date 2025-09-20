@@ -2,8 +2,7 @@ import React, { useState, useEffect } from "react";
 import Product from "./Product.js";
 import { Link } from "react-router-dom";
 import "./adminHome.css";
-import apiURL from './apiConfig.js';
-
+import apiURL from "./apiConfig.js";
 
 function AdminHome({ onLogout }) {
   const [products, setProducts] = useState([]);

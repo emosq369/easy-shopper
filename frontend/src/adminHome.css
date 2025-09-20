@@ -12,6 +12,7 @@
 /* Header Section */
 .header {
   display: flex;
+  color: white;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 20px;

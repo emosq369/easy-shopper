@@ -2,18 +2,30 @@ import React, { useState, useEffect } from "react";
 import Product from "./Product.js";
 import NavBar from "./NavBar.js";
 import "./customerHome.css";
-import apiURL from './apiConfig.js';
+import apiURL from "./apiConfig.js";
 
 function CustomerHome({ onLogout, cart = [], setCart }) {
   const [products, setProducts] = useState([]);
+  console.log(
+    "products from state:",
+    products,
+    Array.isArray(products),
+    products?.length
+  );
+
   const [searchQuery, setSearchQuery] = useState("");
   const [quantities, setQuantities] = useState({}); // Store quantity for each product separately
 
   useEffect(() => {
+    console.log("Fetching from:", `${apiURL}/products`);
     fetch(`${apiURL}/products`)
-      .then((response) => response.json())
+      .then((res) => {
+        console.log("Response status:", res.status);
+        return res.json();
+      })
       .then((data) => {
-        setProducts(data);
+        console.log("Raw fetch data:", data);
+        setProducts(Array.isArray(data) ? data : []);
       })
       .catch((err) => console.error("Error fetching products", err));
   }, []);

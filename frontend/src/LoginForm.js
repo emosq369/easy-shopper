@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./authForm.css";
-import apiURL from './apiConfig.js';
+import apiURL from "./apiConfig.js";
 
 function AuthenticationForm({ onLoginSuccess }) {
   const [formType, setFormType] = useState("login");
