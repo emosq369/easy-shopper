@@ -113,3 +113,12 @@
 .right-side a:hover {
   color: #e04350;
 }
+
+.linklike {
+  background: none;
+  border: 0;
+  padding: 0;
+  color: #0b5fff;
+  text-decoration: underline;
+  cursor: pointer;
+}

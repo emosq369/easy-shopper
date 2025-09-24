@@ -133,14 +133,15 @@ function AuthenticationForm({ onLoginSuccess }) {
           {formType === "login"
             ? "Don't have an account?"
             : "Already have an account"}{" "}
-          <a
-            href="#"
+          <button
+            type="button"
+            className="linklike"
             onClick={() =>
               setFormType(formType === "login" ? "register" : "login")
             }
           >
             {formType === "login" ? "Register here" : "Sign in here"}
-          </a>
+          </button>
         </p>
       </div>
     </div>

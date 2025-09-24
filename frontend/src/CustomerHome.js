@@ -72,7 +72,7 @@ function CustomerHome({ onLogout, cart = [], setCart }) {
     if (storedCart) {
       setCart(storedCart);
     }
-  }, []);
+  }, [setCart]);
 
   useEffect(() => {
     sessionStorage.setItem("cart", JSON.stringify(cart));

@@ -1,32 +1,29 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./orders.css";
-import apiURL from './apiConfig.js';
+import apiURL from "./apiConfig.js";
 
 function Orders() {
   const [orders, setOrders] = useState([]);
-  const [isAuthenticated, setIsAuthenticated] = useState(true);
 
   const userId = sessionStorage.getItem("userId");
   const userRole = sessionStorage.getItem("role");
 
   useEffect(() => {
-    if (!userId || userRole !== "customer") {
-      setIsAuthenticated(false);
-    } else {
-      fetch(`${apiURL}/orders/${userId}`)
-        .then((response) => {
-          if (!response.ok) throw new Error("Failed to fetch orders");
-          return response.json();
-        })
-        .then((data) => setOrders(data))
-        .catch((err) => console.error("Error fetching orders", err));
-    }
+    // Defensive: if somehow reached without a user, do nothing
+    if (!userId || userRole !== "customer") return;
+
+    fetch(`${apiURL}/orders/${userId}`)
+      .then((response) => {
+        if (!response.ok) throw new Error("Failed to fetch orders");
+        return response.json();
+      })
+      .then((data) => setOrders(data))
+      .catch((err) => console.error("Error fetching orders", err));
   }, [userId, userRole]);
 
   return (
     <div className="orders-container">
-      {/* Back to Home */}
       <nav>
         <Link to="/home" className="back-to-home">
           ← Back to Home
@@ -35,7 +32,6 @@ function Orders() {
 
       <h1 className="orders-header">My Orders</h1>
 
-      {/* Orders List */}
       {orders.length === 0 ? (
         <p className="no-orders">No orders found</p>
       ) : (
