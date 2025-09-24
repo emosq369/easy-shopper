@@ -11,15 +11,24 @@ const allowed = ["http://localhost:3000", process.env.FRONTEND_URL].filter(
   Boolean
 );
 
+const allowedOrigins = [
+  "http://localhost:3000",
+  "https://easyshopper-app.netlify.app",
+  "https://soft-toffee-d136f1.netlify.app", // optional: your earlier preview URL
+];
+
 app.use(
   cors({
-    origin: (origin, cb) =>
-      !origin || allowed.includes(origin)
-        ? cb(null, true)
-        : cb(new Error("Not allowed by CORS")),
+    origin: allowedOrigins, // <— array form, no custom function
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"],
     credentials: false, // you’re not using cookies
+    optionsSuccessStatus: 200,
   })
 );
+
+// Make sure preflights get the CORS headers
+app.options("*", cors({ origin: allowedOrigins }));
 app.use(express.json());
 
 // Environment check (Development or Production)
