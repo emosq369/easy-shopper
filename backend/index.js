@@ -6,13 +6,18 @@ require("dotenv").config();
 
 const app = express();
 const port = process.env.PORT || 4000;
+// CORS: allow local dev + deployed frontend (set FRONTEND_URL in Render)
+const allowed = ["http://localhost:3000", process.env.FRONTEND_URL].filter(
+  Boolean
+);
+
 app.use(
   cors({
-    origin: [
-      "http://localhost:3000",
-      "https://<your-frontend-domain>", // add when deployed
-    ],
-    credentials: false,
+    origin: (origin, cb) =>
+      !origin || allowed.includes(origin)
+        ? cb(null, true)
+        : cb(new Error("Not allowed by CORS")),
+    credentials: false, // you’re not using cookies
   })
 );
 app.use(express.json());
