@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./addProduct.css";
-import apiURL from './apiConfig.js';
+import apiURL from "./apiConfig.js";
 
 function AddProduct() {
   const [name, setName] = useState("");
@@ -61,9 +61,9 @@ function AddProduct() {
       {/* Page Header */}
       <div className="header">
         <h1>Add New Product</h1>
-        <a href="/admin" className="back-link">
+        <Link to="/admin" className="back-link">
           ← Back to Admin Home
-        </a>
+        </Link>
       </div>
 
       {/* Notification Message */}
