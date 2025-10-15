@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import {Link} from "react-router-dom";
 import "./cart.css";
 import apiURL from './apiConfig.js';
 
@@ -62,9 +63,9 @@ function Cart({ cart, setCart, user_id }) {
     <div className="cart-container">
       {/* Back to Home Link */}
       <nav>
-        <a href="/home" className="back-to-home">
+        <Link to="/home" className="back-to-home">
           ← Back to Home
-        </a>
+        </Link>
       </nav>
 
       <h1 className="cart-header">Your Shopping Cart</h1>
