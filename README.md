@@ -47,7 +47,7 @@ cp .env.example .env
 npm install
 npm run dev
 
-**### Frontend**
+### Frontend
 cd ../frontend
 cp .env.example .env
 npm install
@@ -58,7 +58,7 @@ Then open http://localhost:3000
 
 ---
 
-## 💬 **Reflection**
+## 💬 Reflection
 
 EasyShopper began as a class project and grew into a complete full-stack app with real hosting and a working database.
 Through it, I learned how to:
@@ -77,19 +77,18 @@ It’s not a commercial product — it’s a proof of skill project demonstratin
 
 ---
 
-## 🏷️ **Versioning**
+## 🏷️ Versioning
 
 Tagged as v1.0
 To view: https://github.com/emosq369/easy-shopper/releases
 
 --
 
-## 📸 **Screenshots**
+## 📸 Screenshots
 
 --
 
-**
-© 2025 Eric Mosquera**
+© 2025 Eric Mosquera
 
 
 
