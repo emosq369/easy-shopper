@@ -8,7 +8,7 @@ Deployed on **Netlify** (frontend) and **Render** (backend + DB).
 ---
 
 ## 🚀 Live Demo
-**Frontend:** [https://easy-shopper.netlify.app](https://easy-shopper.netlify.app)  
+**Frontend:** [https://easy-shopper.netlify.app]
 
 ---
 
