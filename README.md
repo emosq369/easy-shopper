@@ -41,7 +41,7 @@ easy-shopper/
 ## ⚙️ Local Setup
 
 ### Backend
-```bash
+```bash```
 cd backend
 cp .env.example .env
 npm install
