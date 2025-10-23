@@ -41,18 +41,20 @@ easy-shopper/
 ## ⚙️ Local Setup
 
 ### Backend
-```bash```
+```bash
 cd backend
 cp .env.example .env
 npm install
 npm run dev
+```
 
 ### Frontend
+```bash
 cd ../frontend
 cp .env.example .env
 npm install
 npm start
-
+```
 
 Then open http://localhost:3000
 
