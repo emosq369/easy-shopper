@@ -84,11 +84,11 @@ It’s not a commercial product — it’s a proof of skill project demonstratin
 Tagged as v1.0
 To view: https://github.com/emosq369/easy-shopper/releases
 
---
+---
 
 ## 📸 Screenshots
 
---
+---
 
 © 2025 Eric Mosquera
 
