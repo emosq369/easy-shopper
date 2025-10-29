@@ -8,11 +8,13 @@ Deployed on **Netlify** (frontend) and **Render** (backend + DB).
 ---
 
 ## 🚀 Live Demo
+
 **Frontend:** (https://easyshopper-app.netlify.app/)
 
 ---
 
 ## 🧠 Features
+
 - User authentication (login/signup)
 - Manager dashboard for adding/deleting products
 - Persistent cart using `sessionStorage`
@@ -24,6 +26,7 @@ Deployed on **Netlify** (frontend) and **Render** (backend + DB).
 ---
 
 ## 🧰 Tech Stack
+
 **Frontend:** React, React Router, Fetch API  
 **Backend:** Node.js, Express, pg (PostgreSQL)  
 **Database:** PostgreSQL (Render)  
@@ -32,15 +35,19 @@ Deployed on **Netlify** (frontend) and **Render** (backend + DB).
 ---
 
 ## 🧩 Monorepo Structure
+
+```
 easy-shopper/
 ├── backend/ # Express + PostgreSQL API (entry: index.js)
 └── frontend/ # React SPA
+```
 
 ---
 
 ## ⚙️ Local Setup
 
 ### Backend
+
 ```bash
 cd backend
 cp .env.example .env
@@ -49,6 +56,7 @@ npm run dev
 ```
 
 ### Frontend
+
 ```bash
 cd ../frontend
 cp .env.example .env
@@ -88,9 +96,40 @@ To view: https://github.com/emosq369/easy-shopper/releases
 
 ## 📸 Screenshots
 
+**Login**
+![Login](docs/login.png)
+
+**Home**
+![Home](docs/home.png)
+
+**Cart**
+![Cart](docs/cart.png)
+
+**Orders**
+![Orders](docs/orders.png)
+
+**Manager Dashboard**
+![Manager Dashboard](docs/adminhome.png)
+
+**Add Product Page**
+![Add Product Page](docs/addproduct.png)
+
 ---
 
-© 2025 Eric Mosquera
+## 🎬 Demo
 
+**Click the image to watch:**
+[![Watch the demo](docs/login.png)](https://youtu.be/keufUFrTSEw)
 
+---
 
+## 🤝 Acknowledgments
+
+This project was developed collaboratively by **Eric Mosquera (@emosq369)** and **Benjy Flores (@Benf17)**  
+as part of a full-stack course project.
+
+EasyShopper wouldn’t exist without his effort and teamwork.
+
+---
+
+© 2024 Eric Mosquera & Benjy Flores
